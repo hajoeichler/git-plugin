@@ -95,7 +95,7 @@ public class DefaultBuildChooser extends BuildChooser {
 
             // calculate the revisions that are new compared to the last build
             List<Revision> candidateRevs = new ArrayList<Revision>();
-            List<ObjectId> allRevs = git.revListAll(); // index 0 contains the newest revision
+            List<ObjectId> allRevs = git.revListBranch(singleBranch); // index 0 contains the newest revision
             if (data != null && allRevs != null) {
                 Revision lastBuiltRev = data.getLastBuiltRevision();
                 if (lastBuiltRev == null) {
